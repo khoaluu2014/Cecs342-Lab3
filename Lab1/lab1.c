@@ -43,7 +43,7 @@ main()
             do
             {
                   lex();
-            } while (nextToken != ____________);
+            } while (nextToken != EOF);
       }
 }
 /*****************************************************/
@@ -89,6 +89,7 @@ void addChar()
       {
             // YOUR CODE
             lexeme[lexLen] = nextChar;
+            lexLen++;
       }
       else
             printf("Error - lexeme is too long \n");
