@@ -32,7 +32,7 @@ int lex();
 #define RIGHT_PAREN 26
 /******************************************************/
 /* main driver */
-main()
+int main()
 {
       /* Open the input data file and process its contents */
       if ((in_fp = fopen("front.txt", "r")) == NULL)
@@ -62,6 +62,10 @@ int lookup(char ch)
             nextToken = RIGHT_PAREN;
             break;
             // YOUR CODE
+      case '=':
+            addChar();
+            nextToken = ASSIGN_OP;
+            break;
       case '+':
             addChar();
             nextToken = ADD_OP;
