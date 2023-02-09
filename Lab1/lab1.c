@@ -160,6 +160,7 @@ int lex()
       case UNKNOWN:
             // YOUR CODE
             nextToken = lookup(nextChar);
+            getChar();
             break;
       /* EOF */
       case EOF:
@@ -172,5 +173,10 @@ int lex()
       } /* End of switch */
       printf("Next token is: %d, Next lexeme is %s\n",
              nextToken, lexeme);
+      while(lexLen >= 0) {
+            lexeme[lexLen] = '\0';
+            lexLen--;
+      }
+
       return nextToken;
 } /* End of function lex */
