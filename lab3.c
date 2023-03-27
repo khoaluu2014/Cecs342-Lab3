@@ -16,6 +16,9 @@ void addChar();
 void getChar();
 void getNonBlank();
 int lex();
+void expr(void);
+void factor(void);
+void term(void);
 /* Character classes */
 #define LETTER 0
 #define DIGIT 1
@@ -48,6 +51,17 @@ int main()
 
       if ((in_fp = fopen("test2.txt", "r")) == NULL)
             printf("ERROR - cannot open test2.txt \n");
+      else
+      {
+            getChar();
+            do
+            {
+                  expr();
+            } while (nextToken != EOF);
+      }
+
+      if((in_fp = fopen("test3.txt", "r")) == NULL)
+          printf("ERROR - cannot open test3.txt \n");
       else
       {
             getChar();
