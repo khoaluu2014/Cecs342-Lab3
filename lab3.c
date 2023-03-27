@@ -19,6 +19,7 @@ int lex();
 void expr(void);
 void factor(void);
 void term(void);
+void error(void);
 /* Character classes */
 #define LETTER 0
 #define DIGIT 1
