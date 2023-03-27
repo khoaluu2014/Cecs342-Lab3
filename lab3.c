@@ -36,7 +36,18 @@ int main()
 {
       /* Open the input data file and process its contents */
       if ((in_fp = fopen("test1.txt", "r")) == NULL)
-            printf("ERROR - cannot open front.in \n");
+            printf("ERROR - cannot open test1.txt \n");
+      else
+      {
+            getChar();
+            do
+            {
+                  expr();
+            } while (nextToken != EOF);
+      }
+
+      if ((in_fp = fopen("test2.txt", "r")) == NULL)
+            printf("ERROR - cannot open test2.txt \n");
       else
       {
             getChar();
@@ -194,7 +205,8 @@ void expr(void)
       /* As long as the next token is + or -, get
       the next token and parse the next term */
       // YOUR CODE
-      while(nextToken == ADD_OP || nextToken == SUB_OP) {
+      while (nextToken == ADD_OP || nextToken == SUB_OP)
+      {
             lex();
             term();
       }
@@ -215,7 +227,8 @@ void term(void)
       /* As long as the next token is * or /, get the
       next token and parse the next factor */
       // YOUR CODE
-      while(nextToken == MULT_OP || nextToken == DIV_OP) {
+      while (nextToken == MULT_OP || nextToken == DIV_OP)
+      {
             lex();
             factor();
       }
@@ -232,24 +245,29 @@ void factor(void)
       printf("Enter <factor>\n");
       /* Determine which RHS: variable or constant*/
       // YOUR CODE
-      if(nextToken == IDENT || nextToken == INT_LIT) {
+      if (nextToken == IDENT || nextToken == INT_LIT)
+      {
 
-      /* Get the next token */
-      // YOUR CODE
+            /* Get the next token */
+            // YOUR CODE
             lex();
       }
       /* If the RHS is ( <expr> ), call lex to pass over the
       left parenthesis, call expr, and check for the right
       parenthesis (No right parenthesis  syntax error */
       // YOUR CODE
-      else {
-            if(nextToken == LEFT_PAREN) {
+      else
+      {
+            if (nextToken == LEFT_PAREN)
+            {
                   lex();
                   expr();
-                  if(nextToken == RIGHT_PAREN) {
+                  if (nextToken == RIGHT_PAREN)
+                  {
                         lex();
                   }
-                  else {
+                  else
+                  {
                         error();
                   }
             }
@@ -262,6 +280,7 @@ void factor(void)
       printf("Exit <factor>\n");
 } // close the function
 
-void error(void) {
+void error(void)
+{
       printf("SYNTAX ERROR \n");
 }
