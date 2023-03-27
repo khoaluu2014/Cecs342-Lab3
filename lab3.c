@@ -133,7 +133,7 @@ void getChar()
       {
             if (isalpha(nextChar))
                   charClass = LETTER;
-            else if (isnumber(nextChar))
+            else if (isdigit(nextChar))
                   // YOUR CODE
                   charClass = DIGIT;
             else
